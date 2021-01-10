@@ -12,13 +12,15 @@
 	},
 	"settings": {
 		"files.exclude": {
-			"venv/": true
+			"venv/": true,
+			"*/__pycache__/": true
 		},
 		"python.formatting.autopep8Args": [
 			"--max-line-length=140"
 		],
 		"python.languageServer": "Pylance",
-		"python.analysis.diagnosticMode": "workspace"
+		"python.analysis.diagnosticMode": "workspace",
+		"python.analysis.typeCheckingMode": "basic"
 	},
 	"launch": {
 		"version": "0.2.0",
@@ -28,6 +30,13 @@
 				"type": "python",
 				"request": "launch",
 				"program": "${file}",
+				"console": "integratedTerminal"
+			},
+			{
+				"name": "Parse",
+				"type": "python",
+				"request": "launch",
+				"program": "parse.py",
 				"console": "integratedTerminal"
 			}
 		]
