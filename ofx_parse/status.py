@@ -1,8 +1,7 @@
 from typing import Union
-from utils.xmlutils import get_value
+from utils.xmlutils import find_value
 from utils.parse import parse_int
 from lxml.etree import _Element
-
 
 class Status:
     code: Union[int, None]
@@ -33,7 +32,7 @@ class Status:
     def parse_ofx(cls, status_el: Union[_Element, None] = None):
         if status_el is not None:
             return Status(
-                code=get_value(status_el.find('CODE', None), parse_int),
-                status_type=get_value(status_el.find('SEVERITY', None))
+                code=find_value(status_el, 'CODE', parse_int),
+                status_type=find_value(status_el, 'SEVERITY')
             )
         return None

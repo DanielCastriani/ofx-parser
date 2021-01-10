@@ -1,5 +1,5 @@
 from datetime import datetime
-from utils.xmlutils import get_value
+from utils.xmlutils import find_value
 from utils.parse import parse_datetime
 from ofx_parse.status import Status
 from ofx_parse.financial_institution import FinancialInstitution
@@ -25,7 +25,7 @@ class Information:
 
         if self.financial_institution:
             str_list.append('financial institution: ' + str(self.financial_institution))
-       
+
         if self.date:
             str_list.append('dtserver: ' + str(self.date))
 
@@ -43,8 +43,8 @@ class Information:
         sonrs_elm: _Element = signonmsgsrsv1_elm.find("SONRS", None)
         if sonrs_elm is not None:
             return Information(
-                get_value(sonrs_elm.find("DTSERVER", None), parse_datetime),
-                get_value(sonrs_elm.find("LANGUAGE", None)),
+                find_value(sonrs_elm, "DTSERVER", parse_datetime),
+                find_value(sonrs_elm, "LANGUAGE"),
                 FinancialInstitution.parse_ofx(sonrs_elm.find("FI", None)),
                 Status.parse_ofx(sonrs_elm.find("STATUS", None)),
             )

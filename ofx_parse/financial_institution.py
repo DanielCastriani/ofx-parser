@@ -1,5 +1,5 @@
 from typing import Union
-from utils.xmlutils import get_value
+from utils.xmlutils import find_value
 
 from lxml.etree import _Element
 
@@ -17,8 +17,8 @@ class FinancialInstitution:
     def parse_ofx(cls, fi: Union[_Element, None] = None):
         if fi is not None:
             return FinancialInstitution(
-                id=get_value(fi.find('FID', None)),
-                organization=get_value(fi.find('ORG', None))
+                id=find_value(fi, 'FID'),
+                organization=find_value(fi, 'ORG')
             )
         return None
 

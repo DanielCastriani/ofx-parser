@@ -2,8 +2,8 @@ from datetime import datetime
 from ofx_parse.transaction import Transaction
 from ofx_parse.status import Status
 from typing import List, Union
-from utils.parse import parse_datetime, parse_float, parse_int
-from utils.xmlutils import get_value, find_value
+from utils.parse import parse_datetime, parse_int
+from utils.xmlutils import find_value
 from lxml.etree import _Element
 
 
@@ -82,7 +82,7 @@ class CreditCard:
                 currency = find_value(ccstmtrs_el, 'CURDEF')
 
             return CreditCard(
-                trnu_id=get_value(ccstmttrnrs_el.find('TRNUID', None), parse_int),
+                trnu_id=find_value(ccstmttrnrs_el, 'TRNUID', parse_int),
                 status=Status.parse_ofx(ccstmttrnrs_el.find('STATUS', None)),
                 currency=currency,
                 credit_card_number=credit_card_number,
