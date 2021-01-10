@@ -33,10 +33,10 @@
 				"console": "integratedTerminal"
 			},
 			{
-				"name": "Parse",
+				"name": "Example",
 				"type": "python",
 				"request": "launch",
-				"program": "parse.py",
+				"program": "example.py",
 				"console": "integratedTerminal"
 			}
 		]

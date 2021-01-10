@@ -1,7 +1,9 @@
 from typing import Union
-from utils.xmlutils import find_value
-from utils.parse import parse_int
+
 from lxml.etree import _Element
+from utils.parse import parse_int
+from utils.xmlutils import find_value
+
 
 class Status:
     code: Union[int, None]

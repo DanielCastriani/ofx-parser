@@ -1,10 +1,10 @@
-from typing import Union
-from ofx_parse.credit_card import CreditCard
-from ofx_parse.information import Information
 import os
+from typing import Union
 
 from lxml import etree
-from lxml.etree import _Element
+
+from ofx_parse.credit_card import CreditCard
+from ofx_parse.information import Information
 
 
 class OFX:

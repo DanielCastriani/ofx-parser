@@ -1,10 +1,12 @@
 from datetime import datetime
-from ofx_parse.transaction import Transaction
-from ofx_parse.status import Status
 from typing import List, Union
+
+from lxml.etree import _Element
 from utils.parse import parse_datetime, parse_int
 from utils.xmlutils import find_value
-from lxml.etree import _Element
+
+from ofx_parse.status import Status
+from ofx_parse.transaction import Transaction
 
 
 class CreditCard:

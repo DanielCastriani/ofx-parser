@@ -1,5 +1,4 @@
 from datetime import datetime
-from typing import Union
 
 
 def parse_int(value: str):
@@ -9,6 +8,7 @@ def parse_int(value: str):
         except:
             return None
     return None
+
 
 def parse_float(value: str):
     if value:

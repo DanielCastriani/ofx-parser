@@ -1,7 +1,7 @@
 from typing import Union
-from utils.xmlutils import find_value
 
 from lxml.etree import _Element
+from utils.xmlutils import find_value
 
 
 class FinancialInstitution:

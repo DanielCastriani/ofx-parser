@@ -1,11 +1,12 @@
 from datetime import datetime
-from utils.xmlutils import find_value
-from utils.parse import parse_datetime
-from ofx_parse.status import Status
-from ofx_parse.financial_institution import FinancialInstitution
 from typing import Union
 
 from lxml.etree import _Element
+from utils.parse import parse_datetime
+from utils.xmlutils import find_value
+
+from ofx_parse.financial_institution import FinancialInstitution
+from ofx_parse.status import Status
 
 
 class Information:
