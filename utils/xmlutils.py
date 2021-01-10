@@ -10,3 +10,9 @@ def get_value(node_elm: Union[_Element, None] = None, parse_function=None) -> An
         else:
             return value.strip()
     return None
+
+
+def find_value(parent:  Union[_Element, None] = None, key: str = None, parse_function=None) -> Any:
+    if parent is not None:
+        node_el = parent.find(key, None)
+        return get_value(node_el, parse_function=parse_function)

@@ -10,6 +10,14 @@ def parse_int(value: Union[str, None]):
             return None
     return None
 
+def parse_float(value: Union[str, None]):
+    if value:
+        try:
+            return float(value)
+        except:
+            return None
+    return None
+
 
 def parse_datetime(value: Union[str, None], format='%Y%m%d%H%M%S'):
     if value:
