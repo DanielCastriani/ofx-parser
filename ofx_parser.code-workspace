@@ -1,0 +1,35 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"extensions": {
+		"recommendations": [
+			"ms-python.python",
+			"ms-python.vscode-pylance",
+		]
+	},
+	"settings": {
+		"files.exclude": {
+			"venv/": true
+		},
+		"python.formatting.autopep8Args": [
+			"--max-line-length=140"
+		],
+		"python.languageServer": "Pylance",
+		"python.analysis.diagnosticMode": "workspace"
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Current File",
+				"type": "python",
+				"request": "launch",
+				"program": "${file}",
+				"console": "integratedTerminal"
+			}
+		]
+	}
+}
