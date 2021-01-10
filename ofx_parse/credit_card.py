@@ -70,7 +70,7 @@ class CreditCard:
             if ccstmtrs_el is not None:
                 banktranlist_el: _Element = ccstmtrs_el.find('BANKTRANLIST', None)
 
-                if banktranlist_el:
+                if banktranlist_el is not None:
                     start_date = find_value(banktranlist_el, 'DTSTART', lambda x: parse_datetime(x, '%Y%m%d'))
                     end_date = find_value(banktranlist_el, 'DTEND', lambda x: parse_datetime(x, '%Y%m%d'))
 
