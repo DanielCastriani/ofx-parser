@@ -1,4 +1,6 @@
 from typing import Union
+from utils.xmlutils import get_value
+from utils.parse import parse_int
 from lxml.etree import _Element
 
 
@@ -17,27 +19,21 @@ class Status:
 
     def __str__(self) -> str:
         if self.status_type != None and self.code != None:
-            return 'Status: %s (%d)' % (self.status_type, self.code)
+            return '%s (%d)' % (self.status_type, self.code)
 
         if self.status_type != None:
-            return 'Status: ' + self.status_type
+            return self.status_type
 
         if self.code != None:
-            return 'Status: ' + str(self.code)
+            return str(self.code)
 
         return ''
 
     @classmethod
-    def parse_ofx(cls, status_el: _Element):
-        code = None
-        status_type = None
-
-        code_el = status_el.find('CODE', None)
-        if code_el is not None:
-            code = int(code_el.text)
-
-        status_type_el = status_el.find('SEVERITY', None)
-        if status_type_el is not None:
-            status_type = status_type_el.text
-
-        return Status(code=code, status_type=status_type)
+    def parse_ofx(cls, status_el: Union[_Element, None] = None):
+        if status_el is not None:
+            return Status(
+                code=get_value(status_el.find('CODE', None), parse_int),
+                status_type=get_value(status_el.find('SEVERITY', None))
+            )
+        return None
