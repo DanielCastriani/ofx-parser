@@ -16,10 +16,8 @@ class CreditCard:
     start_date: Union[datetime, None]
     end_date: Union[datetime, None]
 
-    def __init__(self, trnu_id: Union[int, None] = None,  status: Union[Status, None] = None, currency: Union[str, None] = None,
-                 credit_card_number: Union[str, None] = None, transaction_list: Union[List[Transaction], None] = None,
-                 start_date: Union[datetime, None] = None, end_date: Union[datetime, None] = None
-                 ) -> None:
+    def __init__(self, trnu_id: int = None,  status: Status = None, currency: str = None, credit_card_number: str = None,
+                 transaction_list: List[Transaction] = None, start_date: datetime = None, end_date: datetime = None) -> None:
         self.trnu_id = trnu_id
         self.status = status
         self.currency = currency

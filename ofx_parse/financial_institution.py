@@ -14,7 +14,7 @@ class FinancialInstitution:
         self.id = id
 
     @classmethod
-    def parse_ofx(cls, fi: Union[_Element, None] = None):
+    def parse_ofx(cls, fi: _Element = None):
         if fi is not None:
             return FinancialInstitution(
                 id=find_value(fi, 'FID'),

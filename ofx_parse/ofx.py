@@ -11,7 +11,7 @@ class OFX:
     information: Union[Information, None]
     credit_card: Union[CreditCard, None]
 
-    def __init__(self, information: Union[Information, None] = None, credit_card: Union[CreditCard, None] = None):
+    def __init__(self, information: Information = None, credit_card: CreditCard = None):
         self.information = information
         self.credit_card = credit_card
 
@@ -48,7 +48,7 @@ class OFX:
             s += '\n=============== CREDIT CARD ===============\n'
             s += str(self.credit_card)
 
-        if len(s) > 0 :
+        if len(s) > 0:
             s += '\n===========================================\n'
 
         return s

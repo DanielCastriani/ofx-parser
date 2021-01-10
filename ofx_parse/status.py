@@ -29,7 +29,7 @@ class Status:
         return ''
 
     @classmethod
-    def parse_ofx(cls, status_el: Union[_Element, None] = None):
+    def parse_ofx(cls, status_el: _Element = None):
         if status_el is not None:
             return Status(
                 code=find_value(status_el, 'CODE', parse_int),

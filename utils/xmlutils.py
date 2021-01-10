@@ -2,7 +2,7 @@ from typing import Any, Union
 from lxml.etree import _Element
 
 
-def get_value(node_elm: Union[_Element, None] = None, parse_function=None) -> Any:
+def get_value(node_elm: _Element = None, parse_function=None) -> Any:
     if node_elm is not None:
         value: str = node_elm.text
         if parse_function is not None:
@@ -12,7 +12,7 @@ def get_value(node_elm: Union[_Element, None] = None, parse_function=None) -> An
     return None
 
 
-def find_value(parent:  Union[_Element, None] = None, key: str = None, parse_function=None) -> Any:
+def find_value(parent:  _Element = None, key: str = None, parse_function=None) -> Any:
     if parent is not None:
         node_el = parent.find(key, None)
         return get_value(node_el, parse_function=parse_function)
