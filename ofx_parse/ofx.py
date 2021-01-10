@@ -41,6 +41,17 @@ class OFX:
         s = ''
 
         if self.information:
+            s += '\n=============== INFORMATION ===============\n'
             s += str(self.information)
 
+        if self.credit_card:
+            s += '\n=============== CREDIT CARD ===============\n'
+            s += str(self.credit_card)
+
+        if len(s) > 0 :
+            s += '\n===========================================\n'
+
         return s
+
+    def to_string(self):
+        return str(self)

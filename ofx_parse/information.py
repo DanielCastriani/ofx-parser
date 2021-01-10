@@ -23,14 +23,14 @@ class Information:
     def __str__(self) -> str:
         str_list = []
 
+        if self.financial_institution:
+            str_list.append('financial institution: ' + str(self.financial_institution))
+       
         if self.date:
             str_list.append('dtserver: ' + str(self.date))
 
         if self.lang:
             str_list.append('lang: ' + self.lang)
-
-        if self.financial_institution:
-            str_list.append('financial institution: ' + str(self.financial_institution))
 
         if self.status:
             str_list.append('status: ' + str(self.status))
