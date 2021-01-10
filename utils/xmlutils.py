@@ -1,11 +1,12 @@
-from typing import Union
+from typing import Any, Union
 from lxml.etree import _Element
 
 
-def get_value(node_elm: Union[_Element, None] = None, parse_function=None):
+def get_value(node_elm: Union[_Element, None] = None, parse_function=None) -> Any:
     if node_elm is not None:
+        value: str = node_elm.text
         if parse_function is not None:
-            return parse_function(node_elm.text)
+            return parse_function(value)
         else:
-            return node_elm.text
+            return value.strip()
     return None
